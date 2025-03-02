@@ -1,22 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+  const decrementCount = () => {
+    setCount(count - 1);
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>簡単なカウンター</h1>
+        <div className="counter">
+          <h2>{count}</h2>
+          <div>
+            <button onClick={decrementCount}>-1</button>
+            <button onClick={incrementCount}>+1</button>
+          </div>
+        </div>
+
+        <p>これは React の状態管理の基本例です</p>
       </header>
     </div>
   );
